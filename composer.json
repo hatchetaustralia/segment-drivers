@@ -1,0 +1,62 @@
+{
+    "name": "segmenttrap/segmenttrap",
+    "type": "library",
+    "description": "A driver-based Segment Analytics library for PHP",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "guzzlehttp/guzzle": "^7.5",
+        "illuminate/contracts": "^10.0",
+        "illuminate/support": "^10.0",
+        "nunomaduro/larastan": "^2.2",
+        "segmentio/analytics-php": "^3.7",
+        "spatie/data-transfer-object": "^3.7",
+        "spatie/laravel-package-tools": "^1.13"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.5",
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^2.0",
+        "phpstan/phpstan": "^1.10",
+        "symfony/var-dumper": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "SegmentTrap\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SegmentTrap\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test:types": "phpstan analyse --ansi --memory-limit=-1",
+        "test:unit": "pest --colors=always",
+        "test": [
+            "@test:types",
+            "@test:unit"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "SegmentTrap\\SegmentTrapServiceProvider"
+            ],
+            "aliases": {
+                "SegmentTrap": "SegmentTrap\\Facades\\SegmentTrap"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
