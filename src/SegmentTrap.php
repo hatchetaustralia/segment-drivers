@@ -9,6 +9,7 @@ use Illuminate\Support\Manager;
 use SegmentTrap\Contracts\Driver;
 use SegmentTrap\Contracts\Factory;
 use SegmentTrap\Drivers\AfterDriver;
+use SegmentTrap\Drivers\EloquentDriver;
 use SegmentTrap\Drivers\LogDriver;
 use SegmentTrap\Drivers\NullDriver;
 use SegmentTrap\Drivers\QueueDriver;
@@ -125,5 +126,10 @@ class SegmentTrap extends Manager implements Factory
     public function createAfterDriver(array $config): AfterDriver
     {
         return new AfterDriver($config);
+    }
+
+    public function createEloquentDriver(array $config): EloquentDriver
+    {
+        return new EloquentDriver($config);
     }
 }

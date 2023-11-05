@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SegmentTrap\Tests;
 
 use SegmentTrap\Facades\SegmentTrap;
+use SegmentTrap\SegmentInvocation;
 use SegmentTrap\SegmentTrapServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
@@ -19,6 +20,13 @@ class TestCase extends \Orchestra\Testbench\TestCase
         return [
             'SegmentTrap' => SegmentTrap::class,
         ];
+    }
+
+    protected function setUp(): void
+    {
+        SegmentInvocation::reset();
+
+        parent::setUp();
     }
 
     protected function tearDown(): void

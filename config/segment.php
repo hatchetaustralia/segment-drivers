@@ -51,7 +51,7 @@ return [
         ],
 
         /**
-         * Dispacth the Segment events via a queue worker
+         * Dispatch the Segment events via a queue worker
          */
         'queue' => [
 
@@ -67,14 +67,21 @@ return [
         ],
 
         /**
-         * Dispacth the Segment events to a log channel
+         * Dispatch the Segment events to a log channel
          */
         'log' => [
             'channel' => env('SEGMENT_LOG_CHANNEL', 'default'),
         ],
 
         /**
-         * Dispacth the Segment events to the void
+         * Dispatch the Segment events to the void
+         */
+        'eloquent' => [
+            'model' => \SegmentTrap\Eloquent\SegmentEvent::class,
+        ],
+
+        /**
+         * Dispatch the Segment events to the void
          */
         'null' => [
         ],
