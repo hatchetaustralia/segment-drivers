@@ -74,7 +74,7 @@ return [
         ],
 
         /**
-         * Dispatch the Segment events to the void
+         * Dispatch the Segment events to a model/the DB.
          */
         'eloquent' => [
             'model' => \SegmentTrap\Eloquent\SegmentEvent::class,
