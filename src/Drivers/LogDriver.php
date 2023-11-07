@@ -4,7 +4,6 @@ namespace SegmentTrap\Drivers;
 
 use Illuminate\Support\Facades\Log;
 use Psr\Log\LoggerInterface;
-use SegmentTrap\SegmentTrap;
 
 class LogDriver extends AbstractDriver
 {

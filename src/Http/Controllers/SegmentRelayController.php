@@ -26,7 +26,7 @@ class SegmentRelayController extends Controller
         Segment::driver()->page([
             'name' => $request->input('name'),
             'category' => $request->input('category'),
-            // 'properties' => $request->input('properties'),
+            'properties' => $request->input('properties'),
         ]);
 
         return response()->json([
@@ -38,7 +38,7 @@ class SegmentRelayController extends Controller
     {
         Segment::driver()->page([
             'event' => $request->input('event'),
-            // 'properties' => $request->input('properties'),
+            'properties' => $request->input('properties'),
         ]);
 
         return response()->json([
