@@ -1,11 +1,11 @@
 <?php
 
 use SegmentTrap\Drivers\NullDriver;
-use SegmentTrap\Facades\SegmentTrap;
+use SegmentTrap\Facades\Segment;
 
 test('SegmentTrap null driver does nothing', function () {
     /** @var NullDriver $driver */
-    $driver = SegmentTrap::driver('null');
+    $driver = Segment::driver('null');
 
     $success = $driver->dispatch('page', [
         'name' => 'Text Page Visit',

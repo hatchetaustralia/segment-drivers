@@ -5,16 +5,19 @@ declare(strict_types=1);
 namespace SegmentTrap;
 
 use Illuminate\Foundation\Application;
+use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Manager;
 use SegmentTrap\Contracts\Driver;
 use SegmentTrap\Contracts\Factory;
 use SegmentTrap\Drivers\AfterDriver;
 use SegmentTrap\Drivers\EloquentDriver;
+use SegmentTrap\Drivers\FakeDriver;
 use SegmentTrap\Drivers\LogDriver;
 use SegmentTrap\Drivers\NullDriver;
 use SegmentTrap\Drivers\QueueDriver;
 use SegmentTrap\Drivers\StackDriver;
 use SegmentTrap\Drivers\SyncDriver;
+use SegmentTrap\DTOs\SegmentItem;
 use SegmentTrap\Exceptions\InvalidArgumentException;
 
 /**
@@ -22,6 +25,11 @@ use SegmentTrap\Exceptions\InvalidArgumentException;
  */
 class SegmentTrap extends Manager implements Factory
 {
+    public static function instance(): SegmentTrap|SegmentFake
+    {
+        return app(SegmentTrap::class);
+    }
+
     public function create(): SyncDriver
     {
         return new SyncDriver();
@@ -55,6 +63,14 @@ class SegmentTrap extends Manager implements Factory
         $driver = $this->parseDriver($driver);
 
         return $this->drivers[$driver] ??= $this->resolve($driver);
+    }
+
+    public function forgetDriver(string $driver = null): static
+    {
+        $driver = $this->parseDriver($driver);
+        unset($this->drivers[$driver]);
+
+        return $this;
     }
 
     /**
@@ -131,5 +147,39 @@ class SegmentTrap extends Manager implements Factory
     public function createEloquentDriver(array $config): EloquentDriver
     {
         return new EloquentDriver($config);
+    }
+
+    public function createFakeDriver(array $config): FakeDriver
+    {
+        return new FakeDriver($config);
+    }
+
+    public static function shutdown(): void
+    {
+        foreach (static::instance()->getDrivers() as $driver) {
+            $driver->flush();
+        }
+    }
+
+    public function pipeThroughModifiers(SegmentItem $item): SegmentItem
+    {
+        $pipeline = new Pipeline($this->container);
+        $pipes = $this->config->get('segment.modifiers', []);
+
+        /** @var SegmentItem $item */
+        $item = $pipeline->send($item)->through($pipes)->thenReturn();
+
+        return $item;
+    }
+
+    public static function applyModifiers(string $method, array $message): array
+    {
+        $item = new SegmentItem($method, $message);
+        $item = static::instance()->pipeThroughModifiers($item);
+
+        return [
+            $item->method,
+            $item->message,
+        ];
     }
 }

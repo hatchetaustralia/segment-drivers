@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Bus;
 use SegmentTrap\Drivers\SyncDriver;
-use SegmentTrap\Facades\SegmentTrap;
+use SegmentTrap\Facades\Segment;
 use SegmentTrap\Jobs\SyncWithSegment;
 
 test('SegmentTrap sync driver runs a single job sync', function () {
@@ -11,7 +11,7 @@ test('SegmentTrap sync driver runs a single job sync', function () {
      */
     Bus::fake();
     /** @var SyncDriver $driver */
-    $driver = SegmentTrap::driver('sync');
+    $driver = Segment::driver('sync');
 
     /**
      * Trigger a segment event

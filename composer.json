@@ -1,5 +1,5 @@
 {
-    "name": "segmenttrap/segmenttrap",
+    "name": "hatchetaustralia/segment",
     "type": "library",
     "description": "A driver-based Segment Analytics library for PHP",
     "license": "MIT",

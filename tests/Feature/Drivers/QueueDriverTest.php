@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Bus;
 use SegmentTrap\Drivers\QueueDriver;
-use SegmentTrap\Facades\SegmentTrap;
+use SegmentTrap\Facades\Segment;
 use SegmentTrap\Jobs\SyncWithSegment;
 
 test('SegmentTrap queue driver runs a single job async', function () {
@@ -11,7 +11,7 @@ test('SegmentTrap queue driver runs a single job async', function () {
      */
     Bus::fake();
     /** @var QueueDriver $driver */
-    $driver = SegmentTrap::driver('queue');
+    $driver = Segment::driver('queue');
 
     /**
      * Trigger a segment event

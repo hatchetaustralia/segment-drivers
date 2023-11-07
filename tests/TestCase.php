@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SegmentTrap\Tests;
 
-use SegmentTrap\Facades\SegmentTrap;
+use SegmentTrap\Facades\Segment;
 use SegmentTrap\SegmentInvocation;
 use SegmentTrap\SegmentTrapServiceProvider;
 
@@ -18,7 +18,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     protected function getPackageAliases($app): array
     {
         return [
-            'SegmentTrap' => SegmentTrap::class,
+            'SegmentTrap' => Segment::class,
         ];
     }
 
@@ -31,12 +31,12 @@ class TestCase extends \Orchestra\Testbench\TestCase
 
     protected function tearDown(): void
     {
-        SegmentTrap::driver('after')->flush();
-        SegmentTrap::driver('log')->flush();
-        SegmentTrap::driver('null')->flush();
-        SegmentTrap::driver('queue')->flush();
-        SegmentTrap::driver('stack')->flush();
-        SegmentTrap::driver('sync')->flush();
+        Segment::driver('after')->flush();
+        Segment::driver('log')->flush();
+        Segment::driver('null')->flush();
+        Segment::driver('queue')->flush();
+        Segment::driver('stack')->flush();
+        Segment::driver('sync')->flush();
 
         parent::tearDown();
     }

@@ -3,6 +3,7 @@
 namespace SegmentTrap\Drivers;
 
 use SegmentTrap\Contracts\Driver;
+use SegmentTrap\SegmentTrap;
 
 abstract class AbstractDriver implements Driver
 {
@@ -11,6 +12,13 @@ abstract class AbstractDriver implements Driver
      */
     public function __construct(protected array $config = [])
     {
+    }
+
+    public function throughMiddleware(string &$method, array &$message): static
+    {
+        [$method, $message] = SegmentTrap::applyModifiers($method, $message);
+
+        return $this;
     }
 
     /**

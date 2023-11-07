@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Foundation\Bus\PendingDispatch;
 use Illuminate\Queue\InteractsWithQueue;
-use SegmentTrap\Facades\SegmentTrap;
+use SegmentTrap\Facades\Segment;
 
 /**
  * @method static PendingDispatch dispatch(array $messages)
@@ -29,7 +29,7 @@ class SyncWithSegment implements ShouldQueue
 
     public function handle(): void
     {
-        $segment = SegmentTrap::driver();
+        $segment = Segment::driver();
 
         foreach ($this->messages as $message) {
             /** @var string $method */

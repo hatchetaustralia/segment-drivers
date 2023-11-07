@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Bus;
 use SegmentTrap\Drivers\AfterDriver;
-use SegmentTrap\Facades\SegmentTrap;
+use SegmentTrap\Facades\Segment;
 use SegmentTrap\Jobs\SyncWithSegment;
 
 test('SegmentTrap after driver runs a single job after the response', function () {
@@ -11,7 +11,7 @@ test('SegmentTrap after driver runs a single job after the response', function (
      */
     Bus::fake();
     /** @var AfterDriver $driver */
-    $driver = SegmentTrap::driver('after');
+    $driver = Segment::driver('after');
 
     /**
      * Trigger a segment event

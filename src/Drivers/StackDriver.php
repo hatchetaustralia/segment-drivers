@@ -3,7 +3,8 @@
 namespace SegmentTrap\Drivers;
 
 use SegmentTrap\Contracts\Driver;
-use SegmentTrap\Facades\SegmentTrap;
+use SegmentTrap\Facades\Segment;
+use SegmentTrap\SegmentTrap;
 
 class StackDriver extends AbstractDriver
 {
@@ -18,7 +19,7 @@ class StackDriver extends AbstractDriver
         $drivers = $this->config['drivers'] ?? [];
 
         return $this->drivers ??= array_map(
-            fn (string $driver) => SegmentTrap::driver($driver),
+            fn (string $driver) => Segment::driver($driver),
             $drivers,
         );
     }
@@ -30,6 +31,7 @@ class StackDriver extends AbstractDriver
      */
     public function dispatch(string $method, array $message = []): bool
     {
+        $this->throughMiddleware($method, $message);
         $overall = true;
 
         foreach ($this->drivers() as $driver) {

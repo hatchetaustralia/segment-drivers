@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Bus;
 use SegmentTrap\Drivers\SyncDriver;
-use SegmentTrap\Facades\SegmentTrap;
+use SegmentTrap\Facades\Segment;
 use SegmentTrap\SegmentInvocation;
 use SegmentTrap\Tests\Fixtures\CustomSegmentModel;
 
@@ -14,7 +14,7 @@ test('SegmentTrap eloquent driver inserts records for each event', function () {
     Bus::fake();
     config()->set('segment.drivers.eloquent.model', CustomSegmentModel::class);
     /** @var SyncDriver $driver */
-    $driver = SegmentTrap::driver('eloquent');
+    $driver = Segment::driver('eloquent');
 
     /**
      * Trigger a segment event

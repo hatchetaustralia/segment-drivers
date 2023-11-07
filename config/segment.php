@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('SEGMENTTRAP_DEFAULT_DRIVER'),
+    'default' => env('SEGMENT_DRIVER', 'log'),
 
     /*
     |--------------------------------------------------------------------------
@@ -87,4 +87,13 @@ return [
         ],
     ],
 
+    'relay' => [
+        'middleware' => [
+            'web',
+        ],
+    ],
+
+    'modifiers' => [
+        \SegmentTrap\Modifiers\SegmentIdentifyEvents::class,
+    ],
 ];

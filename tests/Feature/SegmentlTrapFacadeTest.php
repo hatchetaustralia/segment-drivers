@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use SegmentTrap\Facades\SegmentTrap;
+use SegmentTrap\Facades\Segment;
 
 it('can call methods via the SegmentTrap facade', function () {
-    expect(SegmentTrap::dispatch('Test'))->toBeTrue();
+    expect(Segment::dispatch('Test'))->toBeTrue();
 });

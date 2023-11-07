@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Bus;
 use SegmentTrap\Drivers\StackDriver;
-use SegmentTrap\Facades\SegmentTrap;
+use SegmentTrap\Facades\Segment;
 use SegmentTrap\Jobs\SyncWithSegment;
 
 test('SegmentTrap stack driver relays segment events to multiple drivers', function () {
@@ -16,7 +16,7 @@ test('SegmentTrap stack driver relays segment events to multiple drivers', funct
         'after',
     ]);
     /** @var StackDriver $driver */
-    $driver = SegmentTrap::driver('stack');
+    $driver = Segment::driver('stack');
 
     /**
      * Trigger a segment event
