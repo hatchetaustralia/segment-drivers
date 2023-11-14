@@ -4,7 +4,6 @@ namespace SegmentTrap\Drivers;
 
 use SegmentTrap\Contracts\Driver;
 use SegmentTrap\Facades\Segment;
-use SegmentTrap\SegmentTrap;
 
 class StackDriver extends AbstractDriver
 {

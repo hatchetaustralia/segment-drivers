@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace SegmentTrap;
 
 use Illuminate\Auth\Events;
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +39,7 @@ class SegmentTrapServiceProvider extends PackageServiceProvider
         });
 
         $middleware = $this->app['config']->get('segment.relay.middleware', []);
-        Route::middleware($middleware)->group(fn () => $this->loadRoutesFrom(dirname(__DIR__) . '/routes/segment-routes.php'));
+        Route::middleware($middleware)->group(fn () => $this->loadRoutesFrom(dirname(__DIR__).'/routes/segment-routes.php'));
 
         $this->app->terminating(fn () => SegmentTrap::shutdown());
 

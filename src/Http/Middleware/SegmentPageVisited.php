@@ -13,7 +13,7 @@ class SegmentPageVisited
     public const DEFAULT_CATEGORY = 'default';
 
     /**
-     * @param array<mixed> $properties
+     * @param  array<mixed>  $properties
      */
     public function __construct(public string $category = self::DEFAULT_CATEGORY, public array $properties = [])
     {

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace SegmentTrap\Facades;
 
-use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Facades\Facade;
 use SegmentTrap\Contracts\Driver;
 use SegmentTrap\SegmentFake;

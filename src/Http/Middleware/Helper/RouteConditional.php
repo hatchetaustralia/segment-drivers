@@ -27,7 +27,7 @@ trait RouteConditional
         if (property_exists($this, 'excludePath')) {
             $excludePath = $this->excludePath;
 
-            if (Str::is($excludePath, $uri, )) {
+            if (Str::is($excludePath, $uri)) {
                 return false;
             }
         }

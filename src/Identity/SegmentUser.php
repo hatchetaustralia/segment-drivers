@@ -5,8 +5,8 @@ namespace SegmentTrap\Identity;
 use Closure;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Auth;
-use SegmentTrap\Facades\Segment;
 use Illuminate\Support\Str;
+use SegmentTrap\Facades\Segment;
 
 class SegmentUser
 {
@@ -43,7 +43,7 @@ class SegmentUser
         return $this;
     }
 
-    public function set(?Authenticatable $user = null): static
+    public function set(Authenticatable $user = null): static
     {
         $this->user = $user;
 
