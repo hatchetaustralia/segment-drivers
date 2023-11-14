@@ -4,6 +4,7 @@ namespace SegmentTrap\Identity;
 
 use Closure;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use SegmentTrap\Facades\Segment;
@@ -16,15 +17,24 @@ class SegmentUser
 
     protected array $events = [];
 
-    public function __construct(protected array $last = [])
+    protected array $last = [];
+
+    protected static ?SessionManager $store = null;
+
+    public function __construct()
     {
         $this->events['userId'] ??= fn () => Auth::id();
-        $this->events['anonymousId'] ??= fn () => session()->remember('segment::anonymousId', fn () => Str::random(16));
+        $this->events['anonymousId'] ??= fn () => self::sessionStore()->remember('segment::anonymousId', fn () => Str::random(16));
+    }
+
+    public static function sessionStore(): SessionManager
+    {
+        return static::$store ??= session(); /** @phpstan-ignore-line */
     }
 
     public static function session(): static
     {
-        $existing = session()->get('segment::user', []);
+        $existing = self::sessionStore()->get('segment::user', []);
 
         return self::$session ??= new static($existing);
     }
@@ -35,7 +45,7 @@ class SegmentUser
 
         if ($this->last !== $data) {
             $this->last = $data;
-            session()->put('segment::user', $data);
+            self::sessionStore()->put('segment::user', $data, 360);
 
             Segment::driver()->identify($data);
         }

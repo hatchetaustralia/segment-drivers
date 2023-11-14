@@ -3,45 +3,66 @@
 namespace SegmentTrap\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 use SegmentTrap\Facades\Segment;
+use SegmentTrap\Http\Requests\SegmentIdentityRequest;
+use SegmentTrap\Http\Requests\SegmentPageRequest;
+use SegmentTrap\Http\Requests\SegmentTrackRequest;
 use SegmentTrap\Identity\SegmentUser;
 
 class SegmentRelayController extends Controller
 {
-    public function identify(Request $request): JsonResponse
+    public function identify(SegmentIdentityRequest $request): JsonResponse
     {
-        $user = Auth::user($request->input('guard'));
+        /** @var ?string $guard */
+        $guard = $request->input('guard');
+
+        $user = Auth::guard($guard)->user();
         $user = SegmentUser::session()->set($user);
 
-        return response()->json([
+        return Response::json([
             'success' => true,
         ]);
     }
 
-    public function page(Request $request): JsonResponse
+    public function page(SegmentPageRequest $request): JsonResponse
     {
+        /** @var string $name */
+        $name = $request->input('name');
+
+        /** @var string $category */
+        $category = $request->input('category');
+
+        /** @var array<string, mixed> $properties */
+        $properties = $request->input('properties', []);
+
         Segment::driver()->page([
-            'name' => $request->input('name'),
-            'category' => $request->input('category'),
-            'properties' => $request->input('properties'),
+            'name' => $name,
+            'category' => $category,
+            'properties' => $properties,
         ]);
 
-        return response()->json([
+        return Response::json([
             'success' => true,
         ]);
     }
 
-    public function track(Request $request): JsonResponse
+    public function track(SegmentTrackRequest $request): JsonResponse
     {
+        /** @var string $event */
+        $event = $request->input('event');
+
+        /** @var array<string, mixed> $properties */
+        $properties = $request->input('properties');
+
         Segment::driver()->page([
-            'event' => $request->input('event'),
-            'properties' => $request->input('properties'),
+            'event' => $event,
+            'properties' => $properties,
         ]);
 
-        return response()->json([
+        return Response::json([
             'success' => true,
         ]);
     }

@@ -35,10 +35,10 @@ class SegmentTrapServiceProvider extends PackageServiceProvider
         $this->app->alias(SegmentTrap::class, Factory::class);
 
         $this->app->bind(Driver::class, function (Container $app) {
-            return $app->make(Factory::class)->driver(); // @phpstan-ignore-line
+            return $app->make(Factory::class)->driver(); /** @phpstan-ignore-line */
         });
 
-        $middleware = $this->app['config']->get('segment.relay.middleware', []);
+        $middleware = $this->app['config']->get('segment.relay.middleware', []); /** @phpstan-ignore-line */
         Route::middleware($middleware)->group(fn () => $this->loadRoutesFrom(dirname(__DIR__).'/routes/segment-routes.php'));
 
         $this->app->terminating(fn () => SegmentTrap::shutdown());

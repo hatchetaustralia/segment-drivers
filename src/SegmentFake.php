@@ -11,7 +11,7 @@ use SegmentTrap\Drivers\FakeDriver;
 /**
  * @mixin FakeDriver
  */
-class SegmentFake implements Fake
+class SegmentFake extends SegmentTrap implements Fake
 {
     use ForwardsCalls;
 
@@ -26,8 +26,10 @@ class SegmentFake implements Fake
 
     /**
      * All drivers now point to the fake driver
+     *
+     * @param  string|null  $driver
      */
-    public function driver(string $driver = null): FakeDriver
+    public function driver($driver = null): FakeDriver
     {
         return $this->driver;
     }

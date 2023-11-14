@@ -26,18 +26,22 @@ class Segment extends Facade
 
     public static function getRealBase(): SegmentTrap
     {
-        /** @var SegmentTrap $manager */
-        $manager = static::isFake()
-                ? static::getFacadeRoot()->dispatcher
-                : static::getFacadeRoot();
+        if (static::isFake()) {
+            /** @var SegmentFake $fake */
+            $fake = static::getFacadeRoot();
 
-        return $manager;
+            return $fake->manager;
+        }
+
+        return static::getFacadeRoot();
     }
 
     public static function fake(): SegmentFake
     {
         $manager = static::getRealBase();
-        $fake = new SegmentFake($manager, $manager->forgetDriver('fake')->driver('fake'));
+        $driver = $manager->forgetDriver('fake')->driver('fake');
+
+        $fake = new SegmentFake($manager, $driver);
         static::swap($fake);
 
         return $fake;

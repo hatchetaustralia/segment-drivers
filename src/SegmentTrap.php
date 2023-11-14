@@ -21,12 +21,14 @@ use SegmentTrap\DTOs\SegmentItem;
 use SegmentTrap\Exceptions\InvalidArgumentException;
 
 /**
+ * @property array<string, Driver> $drivers
  * @property Application $container
  */
 class SegmentTrap extends Manager implements Factory
 {
     public static function instance(): SegmentTrap|SegmentFake
     {
+        /** @phpstan-ignore-next-line */
         return app(SegmentTrap::class);
     }
 
@@ -56,6 +58,8 @@ class SegmentTrap extends Manager implements Factory
     }
 
     /**
+     * Get (and/or resolve) the requested driver
+     *
      * @param  string|null  $driver
      */
     public function driver($driver = null): Driver
@@ -65,12 +69,25 @@ class SegmentTrap extends Manager implements Factory
         return $this->drivers[$driver] ??= $this->resolve($driver);
     }
 
+    /**
+     * Forget the given driver
+     */
     public function forgetDriver(string $driver = null): static
     {
         $driver = $this->parseDriver($driver);
         unset($this->drivers[$driver]);
 
         return $this;
+    }
+
+    /**
+     * Get all resolved drivers
+     *
+     * @return array<string, Driver>
+     */
+    public function getDrivers(): array
+    {
+        return $this->drivers;
     }
 
     /**
