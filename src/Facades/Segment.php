@@ -6,6 +6,7 @@ namespace SegmentTrap\Facades;
 
 use Illuminate\Support\Facades\Facade;
 use SegmentTrap\Contracts\Driver;
+use SegmentTrap\Drivers\FakeDriver;
 use SegmentTrap\SegmentFake;
 use SegmentTrap\SegmentTrap;
 
@@ -33,12 +34,17 @@ class Segment extends Facade
             return $fake->manager;
         }
 
-        return static::getFacadeRoot();
+        /** @var SegmentTrap $manager */
+        $manager = static::getFacadeRoot();
+
+        return $manager;
     }
 
     public static function fake(): SegmentFake
     {
         $manager = static::getRealBase();
+
+        /** @var FakeDriver $driver */
         $driver = $manager->forgetDriver('fake')->driver('fake');
 
         $fake = new SegmentFake($manager, $driver);

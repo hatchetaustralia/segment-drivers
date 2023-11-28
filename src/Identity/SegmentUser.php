@@ -32,11 +32,19 @@ class SegmentUser
         return static::$store ??= session(); /** @phpstan-ignore-line */
     }
 
-    public static function session(): static
+    public static function session(): SegmentUser
     {
-        $existing = self::sessionStore()->get('segment::user', []);
+        /** @phpstan-ignore-next-line */
+        $existing = (array) self::sessionStore()->get('segment::user', []);
 
-        return self::$session ??= new static($existing);
+        return self::$session ??= (new SegmentUser())->withSessionData($existing);
+    }
+
+    public function withSessionData(array $data): self
+    {
+        $this->last = $data;
+
+        return $this;
     }
 
     public function store(): static
@@ -45,7 +53,7 @@ class SegmentUser
 
         if ($this->last !== $data) {
             $this->last = $data;
-            self::sessionStore()->put('segment::user', $data, 360);
+            self::sessionStore()->put('segment::user', $data);
 
             Segment::driver()->identify($data);
         }
