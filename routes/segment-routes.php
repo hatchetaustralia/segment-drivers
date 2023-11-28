@@ -5,7 +5,7 @@ use SegmentTrap\Http\Controllers\SegmentRelayController;
 
 Route::prefix('segment/')->group(function () {
     Route::get('segment.js', function () {
-        $file = dirname(__DIR__).'/resources/segment.js';
+        $file = dirname(__DIR__).'/resources/segment.min.js';
         $file = file_get_contents($file) ?: '';
 
         return response()->make($file, headers: [
