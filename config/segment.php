@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 return [
 
-    'key' => '',
+    'key' => env('SEGMENT_API_KEY', ''),
 
     /*
     |--------------------------------------------------------------------------
@@ -89,7 +89,7 @@ return [
 
     'relay' => [
         'middleware' => [
-            'web',
+            // 'web',
         ],
     ],
 

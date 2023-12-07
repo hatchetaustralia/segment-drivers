@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@segment/analytics-next": "^1.61.0"
+  }
+}
