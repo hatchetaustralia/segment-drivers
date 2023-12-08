@@ -2,14 +2,19 @@
 
 namespace SegmentTrap\Drivers;
 
-use SegmentTrap\Jobs\SyncWithSegment;
+use Segment\Segment;
 
-class SyncDriver extends AbstractBatchDriver
+class SyncDriver extends AbstractDriver
 {
+    public function dispatch(string $method, array $message = []): bool
+    {
+        Segment::{$method}($message);
+
+        return true;
+    }
+
     public function flush(): bool
     {
-        return static::flushMessages(
-            fn (array $messages) => SyncWithSegment::dispatchSync($messages),
-        );
+        return true;
     }
 }

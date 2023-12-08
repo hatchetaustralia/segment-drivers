@@ -9,8 +9,8 @@ class SegmentPageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string'],
-            'category' => ['required', 'string'],
+            'name' => ['nullable', 'string'],
+            'category' => ['nullable', 'string'],
             'properties' => ['nullable', 'array'],
         ];
     }
