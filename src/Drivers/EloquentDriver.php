@@ -25,7 +25,7 @@ class EloquentDriver extends AbstractDriver
 
     public function dispatch(string $method, array $message = []): bool
     {
-        $this->throughMiddleware($method, $message);
+        $this->applyModifiers($method, $message);
 
         return $this->newModel()->fill([
             'method' => $method,

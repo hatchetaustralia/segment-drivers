@@ -14,7 +14,7 @@ abstract class AbstractDriver implements Driver
     {
     }
 
-    public function throughMiddleware(string &$method, array &$message): static
+    public function applyModifiers(string &$method, array &$message): static
     {
         [$method, $message] = SegmentTrap::applyModifiers($method, $message);
 

@@ -24,7 +24,7 @@ class SegmentUser
     public function __construct()
     {
         $this->events['userId'] ??= fn () => Auth::id();
-        $this->events['anonymousId'] ??= fn () => self::sessionStore()->remember('segment::anonymousId', fn () => Str::random(16));
+        $this->events['anonymousId'] ??= fn () => self::sessionStore()->remember('segment::anonymousId', fn () => (string) Str::ulid());
     }
 
     public static function sessionStore(): SessionManager

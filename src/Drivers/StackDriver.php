@@ -30,7 +30,7 @@ class StackDriver extends AbstractDriver
      */
     public function dispatch(string $method, array $message = []): bool
     {
-        $this->throughMiddleware($method, $message);
+        $this->applyModifiers($method, $message);
         $overall = true;
 
         foreach ($this->drivers() as $driver) {

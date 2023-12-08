@@ -94,6 +94,7 @@ return [
     ],
 
     'modifiers' => [
+        \SegmentTrap\Modifiers\SegmentIdentifyIpAddress::class,
         \SegmentTrap\Modifiers\SegmentIdentifyEvents::class,
     ],
 ];

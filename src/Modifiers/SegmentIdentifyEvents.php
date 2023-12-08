@@ -10,7 +10,7 @@ class SegmentIdentifyEvents
 {
     public function handle(SegmentItem $item, Closure $next): SegmentItem
     {
-        $item->message = array_replace(SegmentUser::session()->common(), $item->message);
+        $item->withOverrides(SegmentUser::session()->common());
 
         return $next($item);
     }

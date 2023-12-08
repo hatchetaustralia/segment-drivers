@@ -22,7 +22,7 @@ class LogDriver extends AbstractDriver
 
     public function dispatch(string $method, array $message = []): bool
     {
-        $this->throughMiddleware($method, $message);
+        $this->applyModifiers($method, $message);
 
         $this->logger()->debug('Segment::'.$method, $message);
 
