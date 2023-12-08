@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use SegmentTrap\Contracts\Modifier;
 use SegmentTrap\DTOs\SegmentItem;
 
-class SegmentIdentifyIpAddress implements Modifier
+class SegmentContextIpAddress implements Modifier
 {
     public function __construct(public readonly Request $request)
     {
