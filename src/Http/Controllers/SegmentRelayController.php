@@ -4,13 +4,11 @@ namespace SegmentTrap\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use SegmentTrap\Facades\Segment;
 use SegmentTrap\Http\Requests\SegmentIdentityRequest;
 use SegmentTrap\Http\Requests\SegmentPageRequest;
 use SegmentTrap\Http\Requests\SegmentTrackRequest;
-use SegmentTrap\Identity\SegmentUser;
 
 class SegmentRelayController extends Controller
 {
@@ -18,11 +16,7 @@ class SegmentRelayController extends Controller
     {
         $request->verify();
 
-        /** @var ?string $guard */
-        $guard = $request->input('guard');
-
-        $user = Auth::guard($guard)->user();
-        $user = SegmentUser::session()->set($user);
+        Segment::driver()->identify($request->json()->all());
 
         return Response::json([
             'success' => true,

@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 use SegmentTrap\Contracts\Driver;
 use SegmentTrap\Contracts\Factory;
 use SegmentTrap\Facades\Segment;
-use SegmentTrap\Identity\SegmentUser;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -43,24 +42,45 @@ class SegmentTrapServiceProvider extends PackageServiceProvider
 
         $this->app->terminating(fn () => SegmentTrap::shutdown());
 
-        $this->listenToEvents();
+        if ($this->app['config']->get('segment.events.auth')) {
+            self::fireAuthEvents();
+        }
     }
 
-    protected function listenToEvents(): void
+    public static function fireAuthEvents(): void
     {
-        Event::listen(Events\Authenticated::class, fn () => SegmentUser::session()->set(Auth::user()));
-        Event::listen(Events\Failed::class, fn () => Segment::driver()->track([
+        Event::listen(Events\Failed::class, fn () => Segment::track([
+            'category' => 'auth',
+            'event' => 'Authenticated Login',
+        ]));
+
+        Event::listen(Events\Failed::class, fn () => Segment::track([
+            'category' => 'auth',
             'event' => 'Failed Login',
         ]));
-        Event::listen(Events\Login::class, fn () => SegmentUser::session()->set(Auth::user()));
-        Event::listen(Events\Logout::class, fn () => SegmentUser::session()->set(null));
-        Event::listen(Events\PasswordReset::class, fn () => Segment::driver()->track([
+
+        Event::listen(Events\Login::class, fn () => Segment::track([
+            'category' => 'auth',
+            'event' => 'Login',
+        ]));
+
+        Event::listen(Events\Logout::class, fn () => Segment::track([
+            'category' => 'auth',
+            'event' => 'Logout',
+        ]));
+
+        Event::listen(Events\PasswordReset::class, fn () => Segment::track([
+            'category' => 'auth',
             'event' => 'Password Reset',
         ]));
-        Event::listen(Events\Registered::class, fn () => Segment::driver()->track([
+
+        Event::listen(Events\Registered::class, fn () => Segment::track([
+            'category' => 'auth',
             'event' => 'Registered',
         ]));
-        Event::listen(Events\Verified::class, fn () => Segment::driver()->track([
+
+        Event::listen(Events\Verified::class, fn () => Segment::track([
+            'category' => 'auth',
             'event' => 'Verified',
         ]));
     }

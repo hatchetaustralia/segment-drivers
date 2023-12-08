@@ -14,9 +14,6 @@ Route::prefix('segment/')->group(function () {
         ]);
     });
 
-    Route::post('page', [SegmentRelayController::class, 'page']);
-    Route::post('track', [SegmentRelayController::class, 'track']);
-
     Route::prefix('proxies/')->group(function () {
         Route::get('cdn/v1/projects/{id}/settings', function () {
             return response()->json([

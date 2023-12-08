@@ -14,6 +14,13 @@ use SegmentTrap\SegmentTrap;
  * @method static Driver driver(string|null $driver = null)
  * @method static bool dispatch(string $method, array $message = [])
  * @method SegmentItem pipeThroughMiddleware(SegmentItem $item)
+ * @method static bool track(array $message)
+ * @method static bool identify(array $message)
+ * @method static bool group(array $message)
+ * @method static bool page(array $message)
+ * @method static bool screen(array $message)
+ * @method static bool alias(array $message)
+ * @method static bool flush()
  *
  * @see SegmentTrap
  * @see SegmentFake
