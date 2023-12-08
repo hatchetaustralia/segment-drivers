@@ -1,5 +1,7 @@
 # SegmentTrap
 
+**WIP** Laravel Segment integration using drivers
+
 
 ## Example Usage
 
@@ -19,6 +21,8 @@ Segment::driver('queue')->track('itemAddedToCart', [
 
 ## Available Drivers:
 
+WIP
+
 - `stack`: Dispatches the Segment events to various drivers
     - Can configure various other drivers to write to.
 - `sync`: Dispatches the Segment events immediately
@@ -30,3 +34,8 @@ Segment::driver('queue')->track('itemAddedToCart', [
 - `eloquent`: Dispatches the Segment events to a model/the DB.
     - Can configure the model to use
 - `null`: Dispatches the Segment events to the void
+
+
+## Anayltics 2.0 JS Proxy
+
+WIP
