@@ -2,16 +2,14 @@
 
 namespace SegmentTrap\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class SegmentPageRequest extends FormRequest
+class SegmentPageRequest extends AbstractSegmentRequest
 {
     public function rules(): array
     {
         return [
-            'name' => ['nullable', 'string'],
-            'category' => ['nullable', 'string'],
-            'properties' => ['nullable', 'array'],
+            'name' => ['nullable', 'string', 'max:1000'],
+            'category' => ['nullable', 'string', 'max:1000'],
+            'properties' => ['nullable', 'array', 'max:1000'],
         ];
     }
 }

@@ -16,6 +16,8 @@ class SegmentRelayController extends Controller
 {
     public function identify(SegmentIdentityRequest $request): JsonResponse
     {
+        $request->verify();
+
         /** @var ?string $guard */
         $guard = $request->input('guard');
 
@@ -29,20 +31,9 @@ class SegmentRelayController extends Controller
 
     public function page(SegmentPageRequest $request): JsonResponse
     {
-        /** @var string $name */
-        $name = $request->input('name');
+        $request->verify();
 
-        /** @var string $category */
-        $category = $request->input('category');
-
-        /** @var array<string, mixed> $properties */
-        $properties = $request->input('properties', []);
-
-        Segment::driver()->page([
-            'name' => $name,
-            'category' => $category,
-            'properties' => $properties,
-        ]);
+        Segment::driver()->page($request->json());
 
         return Response::json([
             'success' => true,
@@ -51,16 +42,9 @@ class SegmentRelayController extends Controller
 
     public function track(SegmentTrackRequest $request): JsonResponse
     {
-        /** @var string $event */
-        $event = $request->input('event');
+        $request->verify();
 
-        /** @var array<string, mixed> $properties */
-        $properties = $request->input('properties');
-
-        Segment::driver()->page([
-            'event' => $event,
-            'properties' => $properties,
-        ]);
+        Segment::driver()->track($request->json());
 
         return Response::json([
             'success' => true,

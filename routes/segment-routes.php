@@ -20,28 +20,28 @@ Route::prefix('segment/')->group(function () {
     Route::prefix('proxies/')->group(function () {
         Route::get('cdn/v1/projects/{id}/settings', function () {
             return response()->json([
-                "integrations" => [
-                    "Segment.io" => [
-                        "apiKey" => "BuH0QawS5Fr2bidLTfrGZ09YqL5nes4A",
-                        "unbundledIntegrations" => [],
-                        "addBundledMetadata" => true,
-                        "maybeBundledConfigIds" => (object) [],
-                        "versionSettings" => [ "version" => "4.4.7", "componentTypes" => ["browser"] ]
-                    ]
+                'integrations' => [
+                    'Segment.io' => [
+                        'apiKey' => 'BuH0QawS5Fr2bidLTfrGZ09YqL5nes4A',
+                        'unbundledIntegrations' => [],
+                        'addBundledMetadata' => true,
+                        'maybeBundledConfigIds' => (object) [],
+                        'versionSettings' => ['version' => '4.4.7', 'componentTypes' => ['browser']],
+                    ],
                 ],
-                "plan" => [
-                    "track" => [ "__default" => [ "enabled" => true, "integrations" => (object) [] ] ],
-                    "identify" => [ "__default" => [ "enabled" => true ] ],
-                    "group" => [ "__default" => [ "enabled" => true ] ]
+                'plan' => [
+                    'track' => ['__default' => ['enabled' => true, 'integrations' => (object) []]],
+                    'identify' => ['__default' => ['enabled' => true]],
+                    'group' => ['__default' => ['enabled' => true]],
                 ],
-                "edgeFunction" => (object) [],
-                "analyticsNextEnabled" => true,
-                "middlewareSettings" => (object) [],
-                "enabledMiddleware" => (object) [],
-                "metrics" => [ "sampleRate" => 0.1 ],
-                "legacyVideoPluginsEnabled" => false,
-                "remotePlugins" => []
-              ]);
+                'edgeFunction' => (object) [],
+                'analyticsNextEnabled' => true,
+                'middlewareSettings' => (object) [],
+                'enabledMiddleware' => (object) [],
+                'metrics' => ['sampleRate' => 0.1],
+                'legacyVideoPluginsEnabled' => false,
+                'remotePlugins' => [],
+            ]);
         });
 
         Route::prefix('api/')->group(function () {

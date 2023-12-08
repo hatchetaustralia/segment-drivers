@@ -2,9 +2,7 @@
 
 namespace SegmentTrap\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class SegmentIdentityRequest extends FormRequest
+class SegmentIdentityRequest extends AbstractSegmentRequest
 {
     public function rules(): array
     {
