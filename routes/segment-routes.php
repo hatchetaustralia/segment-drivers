@@ -19,7 +19,7 @@ Route::prefix('segment/')->group(function () {
             return response()->json([
                 'integrations' => [
                     'Segment.io' => [
-                        'apiKey' => 'BuH0QawS5Fr2bidLTfrGZ09YqL5nes4A',
+                        'apiKey' => config('segment.key'),
                         'unbundledIntegrations' => [],
                         'addBundledMetadata' => true,
                         'maybeBundledConfigIds' => (object) [],
