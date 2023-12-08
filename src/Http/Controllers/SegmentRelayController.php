@@ -33,7 +33,7 @@ class SegmentRelayController extends Controller
     {
         $request->verify();
 
-        Segment::driver()->page($request->json());
+        Segment::driver()->page($request->json()->all());
 
         return Response::json([
             'success' => true,
@@ -44,7 +44,7 @@ class SegmentRelayController extends Controller
     {
         $request->verify();
 
-        Segment::driver()->track($request->json());
+        Segment::driver()->track($request->json()->all());
 
         return Response::json([
             'success' => true,
