@@ -38,5 +38,7 @@ class SyncWithSegment implements ShouldQueue
 
             Segment::{$method}($data);
         }
+
+        Segment::flush();
     }
 }
