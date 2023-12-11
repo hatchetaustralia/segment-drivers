@@ -94,7 +94,10 @@ return [
     ],
 
     'modifiers' => [
+        \SegmentTrap\Modifiers\SegmentIdentifyDefaults::class,
+        \SegmentTrap\Modifiers\SegmentContextIdentifyEvents::class,
         \SegmentTrap\Modifiers\SegmentContextIpAddress::class,
+        \SegmentTrap\Modifiers\SegmentContextEnvironment::class,
     ],
 
     'events' => [

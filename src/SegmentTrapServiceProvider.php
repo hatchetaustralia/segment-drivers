@@ -7,11 +7,11 @@ namespace SegmentTrap;
 use Illuminate\Auth\Events;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
 use SegmentTrap\Contracts\Driver;
 use SegmentTrap\Contracts\Factory;
+use SegmentTrap\DTOs\SegmentUser;
 use SegmentTrap\Facades\Segment;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -32,6 +32,8 @@ class SegmentTrapServiceProvider extends PackageServiceProvider
     {
         $this->app->singleton(SegmentTrap::class);
         $this->app->alias(SegmentTrap::class, Factory::class);
+
+        $this->app->singleton(SegmentUser::class);
 
         $this->app->bind(Driver::class, function (Container $app) {
             return $app->make(Factory::class)->driver(); /** @phpstan-ignore-line */
