@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use SegmentTrap\Http\Controllers\SegmentRelayController;
 
@@ -14,31 +16,22 @@ Route::prefix('segment/')->group(function () {
         ]);
     });
 
+    Route::post('page', [SegmentRelayController::class, 'page']);
+    Route::post('track', [SegmentRelayController::class, 'track']);
+
     Route::prefix('proxies/')->group(function () {
         Route::get('cdn/v1/projects/{id}/settings', function () {
-            return response()->json([
-                'integrations' => [
-                    'Segment.io' => [
-                        'apiKey' => config('segment.key'),
-                        'unbundledIntegrations' => [],
-                        'addBundledMetadata' => true,
-                        'maybeBundledConfigIds' => (object) [],
-                        'versionSettings' => ['version' => '4.4.7', 'componentTypes' => ['browser']],
-                    ],
-                ],
-                'plan' => [
-                    'track' => ['__default' => ['enabled' => true, 'integrations' => (object) []]],
-                    'identify' => ['__default' => ['enabled' => true]],
-                    'group' => ['__default' => ['enabled' => true]],
-                ],
-                'edgeFunction' => (object) [],
-                'analyticsNextEnabled' => true,
-                'middlewareSettings' => (object) [],
-                'enabledMiddleware' => (object) [],
-                'metrics' => ['sampleRate' => 0.1],
-                'legacyVideoPluginsEnabled' => false,
-                'remotePlugins' => [],
-            ]);
+            $json = Cache::remember('segment_settings', now()->addHour(), function () {
+                $id = config('segment.key');
+
+                $json = Http::acceptJson()
+                    ->get("https://cdn.segment.com/v1/projects/{$id}/settings")
+                    ->json();
+
+                return $json;
+            });
+
+            return response()->json($json);
         });
 
         Route::prefix('api/')->group(function () {
