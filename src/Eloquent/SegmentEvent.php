@@ -1,6 +1,6 @@
 <?php
 
-namespace SegmentTrap\Eloquent;
+namespace Hatchet\Segment\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
 

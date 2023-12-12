@@ -1,12 +1,12 @@
 <?php
 
-namespace SegmentTrap\DTOs;
+namespace Hatchet\Segment\DTOs;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Factory as Auth;
 use Illuminate\Contracts\Support\Arrayable;
 use Psr\Log\LoggerInterface;
-use SegmentTrap\Facades\Segment;
+use Hatchet\Segment\Facades\Segment;
 use Throwable;
 
 class SegmentUser implements Arrayable

@@ -1,6 +1,6 @@
 <?php
 
-namespace SegmentTrap\Contracts;
+namespace Hatchet\Segment\Contracts;
 
 interface Driver
 {

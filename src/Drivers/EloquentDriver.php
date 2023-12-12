@@ -1,9 +1,9 @@
 <?php
 
-namespace SegmentTrap\Drivers;
+namespace Hatchet\Segment\Drivers;
 
 use Illuminate\Database\Eloquent\Model;
-use SegmentTrap\SegmentInvocation;
+use Hatchet\Segment\SegmentInvocation;
 
 class EloquentDriver extends AbstractDriver
 {

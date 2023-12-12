@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Bus;
-use SegmentTrap\Drivers\SyncDriver;
-use SegmentTrap\Facades\Segment;
-use SegmentTrap\Jobs\SyncWithSegment;
+use Hatchet\Segment\Drivers\SyncDriver;
+use Hatchet\Segment\Facades\Segment;
+use Hatchet\Segment\Jobs\SyncWithSegment;
 
 test('SegmentTrap sync driver runs a single job sync', function () {
     /**

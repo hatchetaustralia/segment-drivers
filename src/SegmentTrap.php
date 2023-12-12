@@ -7,18 +7,18 @@ namespace SegmentTrap;
 use Illuminate\Foundation\Application;
 use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Manager;
-use SegmentTrap\Contracts\Driver;
-use SegmentTrap\Contracts\Factory;
-use SegmentTrap\Drivers\AfterDriver;
-use SegmentTrap\Drivers\EloquentDriver;
-use SegmentTrap\Drivers\FakeDriver;
-use SegmentTrap\Drivers\LogDriver;
-use SegmentTrap\Drivers\NullDriver;
-use SegmentTrap\Drivers\QueueDriver;
-use SegmentTrap\Drivers\StackDriver;
-use SegmentTrap\Drivers\SyncDriver;
-use SegmentTrap\DTOs\SegmentItem;
-use SegmentTrap\Exceptions\InvalidArgumentException;
+use Hatchet\Segment\Contracts\Driver;
+use Hatchet\Segment\Contracts\Factory;
+use Hatchet\Segment\Drivers\AfterDriver;
+use Hatchet\Segment\Drivers\EloquentDriver;
+use Hatchet\Segment\Drivers\FakeDriver;
+use Hatchet\Segment\Drivers\LogDriver;
+use Hatchet\Segment\Drivers\NullDriver;
+use Hatchet\Segment\Drivers\QueueDriver;
+use Hatchet\Segment\Drivers\StackDriver;
+use Hatchet\Segment\Drivers\SyncDriver;
+use Hatchet\Segment\DTOs\SegmentItem;
+use Hatchet\Segment\Exceptions\InvalidArgumentException;
 
 /**
  * @property array<string, Driver> $drivers

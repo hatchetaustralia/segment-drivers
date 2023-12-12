@@ -1,7 +1,7 @@
 <?php
 
-use SegmentTrap\Drivers\NullDriver;
-use SegmentTrap\Facades\Segment;
+use Hatchet\Segment\Drivers\NullDriver;
+use Hatchet\Segment\Facades\Segment;
 
 test('SegmentTrap null driver does nothing', function () {
     /** @var NullDriver $driver */

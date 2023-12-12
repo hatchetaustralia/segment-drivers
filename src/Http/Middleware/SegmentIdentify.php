@@ -1,12 +1,12 @@
 <?php
 
-namespace SegmentTrap\Http\Middleware;
+namespace Hatchet\Segment\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use SegmentTrap\DTOs\SegmentUser;
-use SegmentTrap\Facades\Segment;
+use Hatchet\Segment\DTOs\SegmentUser;
+use Hatchet\Segment\Facades\Segment;
 
 class SegmentIdentify
 {

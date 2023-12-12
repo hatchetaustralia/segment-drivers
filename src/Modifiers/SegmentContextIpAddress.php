@@ -1,11 +1,11 @@
 <?php
 
-namespace SegmentTrap\Modifiers;
+namespace Hatchet\Segment\Modifiers;
 
 use Closure;
 use Illuminate\Http\Request;
-use SegmentTrap\Contracts\Modifier;
-use SegmentTrap\DTOs\SegmentItem;
+use Hatchet\Segment\Contracts\Modifier;
+use Hatchet\Segment\DTOs\SegmentItem;
 
 class SegmentContextIpAddress implements Modifier
 {

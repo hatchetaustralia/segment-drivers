@@ -1,10 +1,10 @@
 <?php
 
-use SegmentTrap\Drivers\FakeDriver;
-use SegmentTrap\Drivers\LogDriver;
-use SegmentTrap\Drivers\NullDriver;
-use SegmentTrap\Facades\Segment;
-use SegmentTrap\SegmentFake;
+use Hatchet\Segment\Drivers\FakeDriver;
+use Hatchet\Segment\Drivers\LogDriver;
+use Hatchet\Segment\Drivers\NullDriver;
+use Hatchet\Segment\Facades\Segment;
+use Hatchet\Segment\SegmentFake;
 
 test('SegmentTrap fake driver records each segment event', function () {
     /**

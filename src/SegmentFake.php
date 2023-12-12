@@ -6,7 +6,7 @@ namespace SegmentTrap;
 
 use Illuminate\Support\Testing\Fakes\Fake;
 use Illuminate\Support\Traits\ForwardsCalls;
-use SegmentTrap\Drivers\FakeDriver;
+use Hatchet\Segment\Drivers\FakeDriver;
 
 /**
  * @mixin FakeDriver

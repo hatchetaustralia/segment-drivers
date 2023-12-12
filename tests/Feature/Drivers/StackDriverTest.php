@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Bus;
-use SegmentTrap\Drivers\StackDriver;
-use SegmentTrap\Facades\Segment;
-use SegmentTrap\Jobs\SyncWithSegment;
+use Hatchet\Segment\Drivers\StackDriver;
+use Hatchet\Segment\Facades\Segment;
+use Hatchet\Segment\Jobs\SyncWithSegment;
 
 test('SegmentTrap stack driver relays segment events to multiple drivers', function () {
     /**

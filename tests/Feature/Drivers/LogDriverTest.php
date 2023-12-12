@@ -1,7 +1,7 @@
 <?php
 
-use SegmentTrap\Drivers\LogDriver;
-use SegmentTrap\Facades\Segment;
+use Hatchet\Segment\Drivers\LogDriver;
+use Hatchet\Segment\Facades\Segment;
 
 test('SegmentTrap log driver writes a single event to the logger interface', function () {
     /** @var LogDriver $driver */

@@ -1,10 +1,10 @@
 <?php
 
-namespace SegmentTrap\Http\Middleware;
+namespace Hatchet\Segment\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use SegmentTrap\Facades\Segment;
+use Hatchet\Segment\Facades\Segment;
 
 class SegmentPageVisited
 {

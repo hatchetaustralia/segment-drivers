@@ -1,9 +1,9 @@
 <?php
 
-namespace SegmentTrap\Contracts;
+namespace Hatchet\Segment\Contracts;
 
 use Closure;
-use SegmentTrap\DTOs\SegmentItem;
+use Hatchet\Segment\DTOs\SegmentItem;
 
 interface Modifier
 {

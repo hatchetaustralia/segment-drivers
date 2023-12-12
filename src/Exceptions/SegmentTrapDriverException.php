@@ -1,10 +1,10 @@
 <?php
 
-namespace SegmentTrap\Exceptions;
+namespace Hatchet\Segment\Exceptions;
 
 use Exception;
-use SegmentTrap\Contracts\Driver;
-use SegmentTrap\Contracts\SegmentTrapException;
+use Hatchet\Segment\Contracts\Driver;
+use Hatchet\Segment\Contracts\SegmentTrapException;
 use Throwable;
 
 abstract class SegmentTrapDriverException extends Exception implements SegmentTrapException

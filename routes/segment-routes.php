@@ -4,7 +4,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
-use SegmentTrap\Http\Controllers\SegmentRelayController;
+use Hatchet\Segment\Http\Controllers\SegmentRelayController;
 
 Route::prefix('segment/')->group(function () {
     Route::get('segment.js', function () {

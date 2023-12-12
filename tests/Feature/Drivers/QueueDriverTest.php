@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Bus;
-use SegmentTrap\Drivers\QueueDriver;
-use SegmentTrap\Facades\Segment;
-use SegmentTrap\Jobs\SyncWithSegment;
+use Hatchet\Segment\Drivers\QueueDriver;
+use Hatchet\Segment\Facades\Segment;
+use Hatchet\Segment\Jobs\SyncWithSegment;
 
 test('SegmentTrap queue driver runs a single job async', function () {
     /**

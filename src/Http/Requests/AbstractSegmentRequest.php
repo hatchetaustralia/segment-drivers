@@ -1,6 +1,6 @@
 <?php
 
-namespace SegmentTrap\Http\Requests;
+namespace Hatchet\Segment\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Exception\BadRequestException;
