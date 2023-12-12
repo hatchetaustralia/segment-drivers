@@ -6,8 +6,8 @@ namespace Hatchet\Segment\Facades;
 
 use Hatchet\Segment\Contracts\Driver;
 use Hatchet\Segment\Drivers\FakeDriver;
+use Hatchet\Segment\SegmentAnalytics;
 use Hatchet\Segment\SegmentFake;
-use Hatchet\Segment\SegmentTrap;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -22,17 +22,17 @@ use Illuminate\Support\Facades\Facade;
  * @method static bool alias(array $message)
  * @method static bool flush()
  *
- * @see SegmentTrap
+ * @see SegmentAnalytics
  * @see SegmentFake
  */
 class Segment extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return SegmentTrap::class;
+        return SegmentAnalytics::class;
     }
 
-    public static function getRealBase(): SegmentTrap
+    public static function getRealBase(): SegmentAnalytics
     {
         if (static::isFake()) {
             /** @var SegmentFake $fake */
@@ -41,7 +41,7 @@ class Segment extends Facade
             return $fake->manager;
         }
 
-        /** @var SegmentTrap $manager */
+        /** @var SegmentAnalytics $manager */
         $manager = static::getFacadeRoot();
 
         return $manager;
@@ -60,7 +60,7 @@ class Segment extends Facade
         return $fake;
     }
 
-    public static function unfake(): SegmentTrap
+    public static function unfake(): SegmentAnalytics
     {
         $real = static::getRealBase();
         static::swap($real);

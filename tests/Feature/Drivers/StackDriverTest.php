@@ -5,7 +5,7 @@ use Hatchet\Segment\Facades\Segment;
 use Hatchet\Segment\Jobs\SyncWithSegment;
 use Illuminate\Support\Facades\Bus;
 
-test('SegmentTrap stack driver relays segment events to multiple drivers', function () {
+test('SegmentAnalytics stack driver relays segment events to multiple drivers', function () {
     /**
      * Setup
      */

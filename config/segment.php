@@ -8,10 +8,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default SegmentTrap Driver Name
+    | Default SegmentAnalytics Driver Name
     |--------------------------------------------------------------------------
     |
-    | Here you may specify which of the SegmentTrap drivers below you wish to
+    | Here you may specify which of the SegmentAnalytics drivers below you wish to
     | use for submitting events to Segment API.
     |
     */
@@ -20,10 +20,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | SegmentTrap Drivers
+    | SegmentAnalytics Drivers
     |--------------------------------------------------------------------------
     |
-    | Here are each of the SegmentTrap drivers available for your application.
+    | Here are each of the SegmentAnalytics drivers available for your application.
     |
     */
 

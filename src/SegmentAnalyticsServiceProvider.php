@@ -19,7 +19,7 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 /**
  * @property-read Application $app
  */
-class SegmentTrapServiceProvider extends PackageServiceProvider
+class SegmentAnalyticsServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -30,8 +30,8 @@ class SegmentTrapServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
-        $this->app->singleton(SegmentTrap::class);
-        $this->app->alias(SegmentTrap::class, Factory::class);
+        $this->app->singleton(SegmentAnalytics::class);
+        $this->app->alias(SegmentAnalytics::class, Factory::class);
 
         $this->app->singleton(SegmentUser::class);
 
@@ -42,7 +42,7 @@ class SegmentTrapServiceProvider extends PackageServiceProvider
         $middleware = $this->app['config']->get('segment.relay.middleware', []); /** @phpstan-ignore-line */
         Route::middleware($middleware)->group(fn () => $this->loadRoutesFrom(dirname(__DIR__).'/routes/segment-routes.php'));
 
-        $this->app->terminating(fn () => SegmentTrap::shutdown());
+        $this->app->terminating(fn () => SegmentAnalytics::shutdown());
 
         if ($this->app['config']->get('segment.events.auth')) {
             self::fireAuthEvents();

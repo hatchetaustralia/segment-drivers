@@ -6,7 +6,7 @@ use Hatchet\Segment\SegmentInvocation;
 use Hatchet\Segment\Tests\Fixtures\CustomSegmentModel;
 use Illuminate\Support\Facades\Bus;
 
-test('SegmentTrap eloquent driver inserts records for each event', function () {
+test('SegmentAnalytics eloquent driver inserts records for each event', function () {
     /**
      * Setup
      */

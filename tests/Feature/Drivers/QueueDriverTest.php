@@ -5,7 +5,7 @@ use Hatchet\Segment\Facades\Segment;
 use Hatchet\Segment\Jobs\SyncWithSegment;
 use Illuminate\Support\Facades\Bus;
 
-test('SegmentTrap queue driver runs a single job async', function () {
+test('SegmentAnalytics queue driver runs a single job async', function () {
     /**
      * Setup
      */

@@ -3,7 +3,7 @@
 namespace Hatchet\Segment\Drivers;
 
 use Hatchet\Segment\Contracts\Driver;
-use Hatchet\Segment\SegmentTrap;
+use Hatchet\Segment\SegmentAnalytics;
 
 abstract class AbstractDriver implements Driver
 {
@@ -16,7 +16,7 @@ abstract class AbstractDriver implements Driver
 
     public function applyModifiers(string &$method, array &$message): static
     {
-        [$method, $message] = SegmentTrap::applyModifiers($method, $message);
+        [$method, $message] = SegmentAnalytics::applyModifiers($method, $message);
 
         return $this;
     }

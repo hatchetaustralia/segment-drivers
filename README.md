@@ -1,4 +1,4 @@
-# SegmentTrap
+# SegmentAnalytics
 
 **WIP** Laravel Segment integration using drivers
 

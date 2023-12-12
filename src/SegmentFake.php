@@ -11,11 +11,11 @@ use Illuminate\Support\Traits\ForwardsCalls;
 /**
  * @mixin FakeDriver
  */
-class SegmentFake extends SegmentTrap implements Fake
+class SegmentFake extends SegmentAnalytics implements Fake
 {
     use ForwardsCalls;
 
-    public function __construct(public SegmentTrap $manager, public FakeDriver $driver)
+    public function __construct(public SegmentAnalytics $manager, public FakeDriver $driver)
     {
     }
 

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Hatchet\Segment\Exceptions;
 
-use Hatchet\Segment\Contracts\SegmentTrapException;
+use Hatchet\Segment\Contracts\SegmentAnalyticsException;
 
-class InvalidArgumentException extends \InvalidArgumentException implements SegmentTrapException
+class InvalidArgumentException extends \InvalidArgumentException implements SegmentAnalyticsException
 {
 }

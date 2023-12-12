@@ -6,7 +6,7 @@ use Hatchet\Segment\Drivers\NullDriver;
 use Hatchet\Segment\Facades\Segment;
 use Hatchet\Segment\SegmentFake;
 
-test('SegmentTrap fake driver records each segment event', function () {
+test('SegmentAnalytics fake driver records each segment event', function () {
     /**
      * Setup
      */
@@ -38,7 +38,7 @@ test('SegmentTrap fake driver records each segment event', function () {
     expect($driver->history())->toBe([]);
 });
 
-test('SegmentTrap facade can swap the driver for a fake instance', function () {
+test('SegmentAnalytics facade can swap the driver for a fake instance', function () {
     config()->set('segment.default', 'null');
 
     expect(Segment::driver())->toBeInstanceOf(NullDriver::class);

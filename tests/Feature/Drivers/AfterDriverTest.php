@@ -5,7 +5,7 @@ use Hatchet\Segment\Facades\Segment;
 use Hatchet\Segment\Jobs\SyncWithSegment;
 use Illuminate\Support\Facades\Bus;
 
-test('SegmentTrap after driver runs a single job after the response', function () {
+test('SegmentAnalytics after driver runs a single job after the response', function () {
     /**
      * Setup
      */

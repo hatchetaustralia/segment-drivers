@@ -24,12 +24,12 @@ use Illuminate\Support\Manager;
  * @property array<string, Driver> $drivers
  * @property Application $container
  */
-class SegmentTrap extends Manager implements Factory
+class SegmentAnalytics extends Manager implements Factory
 {
-    public static function instance(): SegmentTrap|SegmentFake
+    public static function instance(): SegmentAnalytics|SegmentFake
     {
         /** @phpstan-ignore-next-line */
-        return app(SegmentTrap::class);
+        return app(SegmentAnalytics::class);
     }
 
     public function create(): SyncDriver
@@ -43,7 +43,7 @@ class SegmentTrap extends Manager implements Factory
         $driver = $this->config->get('segment.default');
 
         if (! is_string($driver)) {
-            throw new InvalidArgumentException('A default SegmentTrap driver has not been configured');
+            throw new InvalidArgumentException('A default SegmentAnalytics driver has not been configured');
         }
 
         return $driver;

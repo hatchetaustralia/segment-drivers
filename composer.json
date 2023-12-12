@@ -52,10 +52,10 @@
         },
         "laravel": {
             "providers": [
-                "Hatchet\\Segment\\SegmentTrapServiceProvider"
+                "Hatchet\\Segment\\SegmentAnalyticsServiceProvider"
             ],
             "aliases": {
-                "SegmentTrap": "Hatchet\\Segment\\Facades\\SegmentTrap"
+                "Segment": "Hatchet\\Segment\\Facades\\Segment"
             }
         }
     },

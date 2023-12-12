@@ -3,7 +3,7 @@
 use Hatchet\Segment\Drivers\NullDriver;
 use Hatchet\Segment\Facades\Segment;
 
-test('SegmentTrap null driver does nothing', function () {
+test('SegmentAnalytics null driver does nothing', function () {
     /** @var NullDriver $driver */
     $driver = Segment::driver('null');
 

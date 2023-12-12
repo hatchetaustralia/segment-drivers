@@ -7,7 +7,7 @@ namespace Hatchet\Segment\Contracts;
 interface Factory
 {
     /**
-     * Get a SegmentTrap driver implementation.
+     * Get a SegmentAnalytics driver implementation.
      *
      * @param  string  $driver
      * @return Driver
