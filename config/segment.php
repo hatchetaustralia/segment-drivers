@@ -94,6 +94,7 @@ return [
     ],
 
     'modifiers' => [
+        \Hatchet\Segment\Modifiers\SegmentTimestamps::class,
         \Hatchet\Segment\Modifiers\SegmentIdentifyDefaults::class,
         \Hatchet\Segment\Modifiers\SegmentContextIdentifyEvents::class,
         \Hatchet\Segment\Modifiers\SegmentContextIpAddress::class,
