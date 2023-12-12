@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SegmentTrap;
+namespace Hatchet\Segment;
 
+use Hatchet\Segment\Drivers\FakeDriver;
 use Illuminate\Support\Testing\Fakes\Fake;
 use Illuminate\Support\Traits\ForwardsCalls;
-use SegmentTrap\Drivers\FakeDriver;
 
 /**
  * @mixin FakeDriver

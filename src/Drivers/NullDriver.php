@@ -1,6 +1,6 @@
 <?php
 
-namespace SegmentTrap\Drivers;
+namespace Hatchet\Segment\Drivers;
 
 class NullDriver extends AbstractDriver
 {

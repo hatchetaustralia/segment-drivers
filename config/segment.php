@@ -77,7 +77,7 @@ return [
          * Dispatch the Segment events to a model/the DB.
          */
         'eloquent' => [
-            'model' => \SegmentTrap\Eloquent\SegmentEvent::class,
+            'model' => \Hatchet\Segment\Eloquent\SegmentEvent::class,
         ],
 
         /**
@@ -94,10 +94,10 @@ return [
     ],
 
     'modifiers' => [
-        \SegmentTrap\Modifiers\SegmentIdentifyDefaults::class,
-        \SegmentTrap\Modifiers\SegmentContextIdentifyEvents::class,
-        \SegmentTrap\Modifiers\SegmentContextIpAddress::class,
-        \SegmentTrap\Modifiers\SegmentContextEnvironment::class,
+        \Hatchet\Segment\Modifiers\SegmentIdentifyDefaults::class,
+        \Hatchet\Segment\Modifiers\SegmentContextIdentifyEvents::class,
+        \Hatchet\Segment\Modifiers\SegmentContextIpAddress::class,
+        \Hatchet\Segment\Modifiers\SegmentContextEnvironment::class,
     ],
 
     'events' => [

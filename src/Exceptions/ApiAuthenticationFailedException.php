@@ -1,8 +1,8 @@
 <?php
 
-namespace SegmentTrap\Exceptions;
+namespace Hatchet\Segment\Exceptions;
 
-use SegmentTrap\Contracts\Driver;
+use Hatchet\Segment\Contracts\Driver;
 use Throwable;
 
 class ApiAuthenticationFailedException extends SegmentTrapDriverException

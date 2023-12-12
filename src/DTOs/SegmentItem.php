@@ -1,6 +1,6 @@
 <?php
 
-namespace SegmentTrap\DTOs;
+namespace Hatchet\Segment\DTOs;
 
 use Illuminate\Support\Arr;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace SegmentTrap\Drivers;
+namespace Hatchet\Segment\Drivers;
 
-use SegmentTrap\Jobs\SyncWithSegment;
+use Hatchet\Segment\Jobs\SyncWithSegment;
 
 class AfterDriver extends AbstractBatchDriver
 {

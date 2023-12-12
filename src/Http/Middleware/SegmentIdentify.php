@@ -1,18 +1,16 @@
 <?php
 
-namespace SegmentTrap\Http\Middleware;
+namespace Hatchet\Segment\Http\Middleware;
 
 use Closure;
+use Hatchet\Segment\Facades\Segment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use SegmentTrap\DTOs\SegmentUser;
-use SegmentTrap\Facades\Segment;
 
 class SegmentIdentify
 {
     use Helper\RouteConditional;
 
-    public function handle(Request $request, Closure $next,): mixed
+    public function handle(Request $request, Closure $next): mixed
     {
         if (! $this->allowed($request)) {
             return $next($request);

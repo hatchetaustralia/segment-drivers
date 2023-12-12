@@ -1,14 +1,14 @@
 <?php
 
-namespace SegmentTrap\Http\Controllers;
+namespace Hatchet\Segment\Http\Controllers;
 
+use Hatchet\Segment\Facades\Segment;
+use Hatchet\Segment\Http\Requests\SegmentIdentityRequest;
+use Hatchet\Segment\Http\Requests\SegmentPageRequest;
+use Hatchet\Segment\Http\Requests\SegmentTrackRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Response;
-use SegmentTrap\Facades\Segment;
-use SegmentTrap\Http\Requests\SegmentIdentityRequest;
-use SegmentTrap\Http\Requests\SegmentPageRequest;
-use SegmentTrap\Http\Requests\SegmentTrackRequest;
 
 class SegmentRelayController extends Controller
 {

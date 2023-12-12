@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace SegmentTrap;
+namespace Hatchet\Segment;
 
+use Hatchet\Segment\Contracts\Driver;
+use Hatchet\Segment\Contracts\Factory;
+use Hatchet\Segment\DTOs\SegmentUser;
+use Hatchet\Segment\Facades\Segment;
 use Illuminate\Auth\Events;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Route;
-use SegmentTrap\Contracts\Driver;
-use SegmentTrap\Contracts\Factory;
-use SegmentTrap\DTOs\SegmentUser;
-use SegmentTrap\Facades\Segment;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

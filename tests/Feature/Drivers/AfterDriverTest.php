@@ -1,9 +1,9 @@
 <?php
 
+use Hatchet\Segment\Drivers\AfterDriver;
+use Hatchet\Segment\Facades\Segment;
+use Hatchet\Segment\Jobs\SyncWithSegment;
 use Illuminate\Support\Facades\Bus;
-use SegmentTrap\Drivers\AfterDriver;
-use SegmentTrap\Facades\Segment;
-use SegmentTrap\Jobs\SyncWithSegment;
 
 test('SegmentTrap after driver runs a single job after the response', function () {
     /**

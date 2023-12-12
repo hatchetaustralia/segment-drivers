@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace SegmentTrap\Exceptions;
+namespace Hatchet\Segment\Exceptions;
 
-use SegmentTrap\Contracts\SegmentTrapException;
+use Hatchet\Segment\Contracts\SegmentTrapException;
 
 class InvalidArgumentException extends \InvalidArgumentException implements SegmentTrapException
 {

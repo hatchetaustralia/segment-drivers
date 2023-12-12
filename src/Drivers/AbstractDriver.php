@@ -1,9 +1,9 @@
 <?php
 
-namespace SegmentTrap\Drivers;
+namespace Hatchet\Segment\Drivers;
 
-use SegmentTrap\Contracts\Driver;
-use SegmentTrap\SegmentTrap;
+use Hatchet\Segment\Contracts\Driver;
+use Hatchet\Segment\SegmentTrap;
 
 abstract class AbstractDriver implements Driver
 {

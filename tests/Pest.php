@@ -2,6 +2,6 @@
 
 declare(strict_types=1);
 
-use SegmentTrap\Tests\TestCase;
+use Hatchet\Segment\Tests\TestCase;
 
 uses(TestCase::class)->in('Feature');

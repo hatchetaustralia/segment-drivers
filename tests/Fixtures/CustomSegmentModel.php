@@ -1,6 +1,6 @@
 <?php
 
-namespace SegmentTrap\Tests\Fixtures;
+namespace Hatchet\Segment\Tests\Fixtures;
 
 use Illuminate\Database\Eloquent\Model;
 

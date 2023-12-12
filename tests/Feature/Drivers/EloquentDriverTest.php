@@ -1,10 +1,10 @@
 <?php
 
+use Hatchet\Segment\Drivers\SyncDriver;
+use Hatchet\Segment\Facades\Segment;
+use Hatchet\Segment\SegmentInvocation;
+use Hatchet\Segment\Tests\Fixtures\CustomSegmentModel;
 use Illuminate\Support\Facades\Bus;
-use SegmentTrap\Drivers\SyncDriver;
-use SegmentTrap\Facades\Segment;
-use SegmentTrap\SegmentInvocation;
-use SegmentTrap\Tests\Fixtures\CustomSegmentModel;
 
 test('SegmentTrap eloquent driver inserts records for each event', function () {
     /**

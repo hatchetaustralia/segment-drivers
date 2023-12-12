@@ -1,6 +1,6 @@
 <?php
 
-namespace SegmentTrap\Http\Middleware\Helper;
+namespace Hatchet\Segment\Http\Middleware\Helper;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;

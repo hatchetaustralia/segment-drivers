@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace SegmentTrap\Facades;
+namespace Hatchet\Segment\Facades;
 
+use Hatchet\Segment\Contracts\Driver;
+use Hatchet\Segment\Drivers\FakeDriver;
+use Hatchet\Segment\SegmentFake;
+use Hatchet\Segment\SegmentTrap;
 use Illuminate\Support\Facades\Facade;
-use SegmentTrap\Contracts\Driver;
-use SegmentTrap\Drivers\FakeDriver;
-use SegmentTrap\SegmentFake;
-use SegmentTrap\SegmentTrap;
 
 /**
  * @method static Driver driver(string|null $driver = null)

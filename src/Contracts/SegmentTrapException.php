@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SegmentTrap\Contracts;
+namespace Hatchet\Segment\Contracts;
 
 interface SegmentTrapException
 {

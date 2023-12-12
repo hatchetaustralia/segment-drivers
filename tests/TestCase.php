@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace SegmentTrap\Tests;
+namespace Hatchet\Segment\Tests;
 
-use SegmentTrap\Facades\Segment;
-use SegmentTrap\SegmentInvocation;
-use SegmentTrap\SegmentTrapServiceProvider;
+use Hatchet\Segment\Facades\Segment;
+use Hatchet\Segment\SegmentInvocation;
+use Hatchet\Segment\SegmentTrapServiceProvider;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {

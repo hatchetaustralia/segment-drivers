@@ -1,25 +1,24 @@
 <?php
 
-namespace SegmentTrap\Modifiers;
+namespace Hatchet\Segment\Modifiers;
 
 use Closure;
+use Hatchet\Segment\Contracts\Modifier;
+use Hatchet\Segment\DTOs\SegmentItem;
+use Hatchet\Segment\DTOs\SegmentUser;
 use Illuminate\Http\Request;
-use SegmentTrap\Contracts\Modifier;
-use SegmentTrap\DTOs\SegmentItem;
-use SegmentTrap\DTOs\SegmentUser;
 
 class SegmentIdentifyDefaults implements Modifier
 {
     /**
-     * @var array<int, (Closure(SegmentUser $identify, SegmentItem $item, Request $request): void)> $callbacks
+     * @var array<int, (Closure(SegmentUser, SegmentItem $item, Request $request): void)> $callbacks
      */
     protected static array $callbacks = [];
 
     public function __construct(
         public readonly SegmentUser $user,
         public readonly Request $request,
-    )
-    {
+    ) {
     }
 
     public function handle(SegmentItem $item, Closure $next): SegmentItem

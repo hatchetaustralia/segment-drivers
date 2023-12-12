@@ -1,11 +1,11 @@
 <?php
 
-namespace SegmentTrap\Modifiers;
+namespace Hatchet\Segment\Modifiers;
 
 use Closure;
+use Hatchet\Segment\Contracts\Modifier;
+use Hatchet\Segment\DTOs\SegmentItem;
 use Illuminate\Contracts\Foundation\Application;
-use SegmentTrap\Contracts\Modifier;
-use SegmentTrap\DTOs\SegmentItem;
 
 class SegmentContextEnvironment implements Modifier
 {

@@ -23,12 +23,12 @@
     },
     "autoload": {
         "psr-4": {
-            "SegmentTrap\\": "src/"
+            "Hatchet\\Segment\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SegmentTrap\\Tests\\": "tests/"
+            "Hatchet\\Segment\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -52,10 +52,10 @@
         },
         "laravel": {
             "providers": [
-                "SegmentTrap\\SegmentTrapServiceProvider"
+                "Hatchet\\Segment\\SegmentTrapServiceProvider"
             ],
             "aliases": {
-                "SegmentTrap": "SegmentTrap\\Facades\\SegmentTrap"
+                "SegmentTrap": "Hatchet\\Segment\\Facades\\SegmentTrap"
             }
         }
     },

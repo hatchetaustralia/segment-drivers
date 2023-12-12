@@ -1,6 +1,6 @@
 <?php
 
-namespace SegmentTrap\Drivers;
+namespace Hatchet\Segment\Drivers;
 
 use Illuminate\Support\Facades\Log;
 use Psr\Log\LoggerInterface;

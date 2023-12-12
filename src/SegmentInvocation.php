@@ -1,6 +1,6 @@
 <?php
 
-namespace SegmentTrap;
+namespace Hatchet\Segment;
 
 use Illuminate\Support\Str;
 

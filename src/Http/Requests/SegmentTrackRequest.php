@@ -1,6 +1,6 @@
 <?php
 
-namespace SegmentTrap\Http\Requests;
+namespace Hatchet\Segment\Http\Requests;
 
 class SegmentTrackRequest extends AbstractSegmentRequest
 {

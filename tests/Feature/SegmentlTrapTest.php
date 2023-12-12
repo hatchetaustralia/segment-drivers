@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
+use Hatchet\Segment\Drivers\NullDriver;
+use Hatchet\Segment\Drivers\StackDriver;
+use Hatchet\Segment\Exceptions\InvalidArgumentException;
+use Hatchet\Segment\SegmentTrap;
 use Illuminate\Contracts\Config\Repository;
-use SegmentTrap\Drivers\NullDriver;
-use SegmentTrap\Drivers\StackDriver;
-use SegmentTrap\Exceptions\InvalidArgumentException;
-use SegmentTrap\SegmentTrap;
 
 it('can instantiate SegmentTrap', function () {
     expect($this->app->get(SegmentTrap::class))->toBeInstanceOf(SegmentTrap::class);
