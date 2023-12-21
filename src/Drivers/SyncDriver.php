@@ -2,7 +2,7 @@
 
 namespace Hatchet\Segment\Drivers;
 
-use Segment\Segment;
+use Hatchet\Segment\Jobs\SyncWithSegment;
 
 class SyncDriver extends AbstractDriver
 {
@@ -10,7 +10,9 @@ class SyncDriver extends AbstractDriver
     {
         $this->applyModifiers($method, $message);
 
-        Segment::{$method}($message);
+        SyncWithSegment::dispatchSync([
+            [$method, $message],
+        ]);
 
         return true;
     }

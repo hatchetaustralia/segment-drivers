@@ -32,7 +32,7 @@ class SegmentUser implements Arrayable
         return $this->user !== null;
     }
 
-    public function loadMissing(string $guard = null): static
+    public function loadMissing(?string $guard = null): static
     {
         if ($this->user !== null) {
             return $this;
@@ -41,7 +41,7 @@ class SegmentUser implements Arrayable
         return $this->load($guard);
     }
 
-    public function load(string $guard = null): static
+    public function load(?string $guard = null): static
     {
         $this->set($this->auth->guard($guard)->user());
 

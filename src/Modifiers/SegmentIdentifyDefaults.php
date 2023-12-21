@@ -7,11 +7,12 @@ use Hatchet\Segment\Contracts\Modifier;
 use Hatchet\Segment\DTOs\SegmentItem;
 use Hatchet\Segment\DTOs\SegmentUser;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class SegmentIdentifyDefaults implements Modifier
 {
     /**
-     * @var array<int, (Closure(SegmentUser, SegmentItem $item, Request $request): void)> $callbacks
+     * @var array<int, (Closure(SegmentUser $user, SegmentItem $item, Request $request): void)> $callbacks
      */
     protected static array $callbacks = [];
 
@@ -31,6 +32,9 @@ class SegmentIdentifyDefaults implements Modifier
             $callback($this->user, $item, $this->request);
         }
 
+        $item->withDefaults([
+            'anonymousId' => session()->remember('segment_anonymous_id', fn () => (string) Str::uuid()),
+        ]);
         $item->withDefaults($this->user->toArray());
 
         return $next($item);

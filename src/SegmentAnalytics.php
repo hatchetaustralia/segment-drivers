@@ -52,7 +52,7 @@ class SegmentAnalytics extends Manager implements Factory
     /**
      * Parse the driver name.
      */
-    protected function parseDriver(string $driver = null): string
+    protected function parseDriver(?string $driver = null): string
     {
         return $driver ??= $this->getDefaultDriver();
     }
@@ -72,7 +72,7 @@ class SegmentAnalytics extends Manager implements Factory
     /**
      * Forget the given driver
      */
-    public function forgetDriver(string $driver = null): static
+    public function forgetDriver(?string $driver = null): static
     {
         $driver = $this->parseDriver($driver);
         unset($this->drivers[$driver]);
@@ -118,7 +118,7 @@ class SegmentAnalytics extends Manager implements Factory
     /**
      * @return array<string, mixed>
      */
-    public function configurationFor(string $driver = null): array
+    public function configurationFor(?string $driver = null): array
     {
         $driver ??= $this->getDefaultDriver();
 

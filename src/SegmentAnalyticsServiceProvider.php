@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Hatchet\Segment;
 
+use Hatchet\Segment\Console\Commands\SegmentTestCommand;
 use Hatchet\Segment\Contracts\Driver;
 use Hatchet\Segment\Contracts\Factory;
 use Hatchet\Segment\DTOs\SegmentUser;
@@ -47,6 +48,10 @@ class SegmentAnalyticsServiceProvider extends PackageServiceProvider
         if ($this->app['config']->get('segment.events.auth')) {
             self::fireAuthEvents();
         }
+
+        $this->commands([
+            SegmentTestCommand::class,
+        ]);
     }
 
     public static function fireAuthEvents(): void
