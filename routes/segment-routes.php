@@ -34,10 +34,10 @@ Route::prefix('segment/')->group(function () {
             return response()->json($json);
         });
 
-        Route::prefix('api/')->group(function () {
+        Route::prefix('api/')->withoutMiddleware(VerifyCsrfToken::class)->group(function () {
             Route::post('i', [SegmentRelayController::class, 'identify']);
             Route::post('p', [SegmentRelayController::class, 'page']);
             Route::post('t', [SegmentRelayController::class, 'track']);
-        })->withoutMiddleware(VerifyCsrfToken::class);
+        });
     });
 });
