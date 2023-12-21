@@ -3,6 +3,7 @@
 namespace Hatchet\Segment\DTOs;
 
 use Hatchet\Segment\Facades\Segment;
+use Hatchet\Segment\SegmentAnalytics;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Factory as Auth;
 use Illuminate\Contracts\Support\Arrayable;
@@ -102,9 +103,9 @@ class SegmentUser implements Arrayable
 
     public static function build(): static
     {
-        Segment::driver('null')->identify([]);
+        $item = SegmentAnalytics::instance()->pipeThroughModifiers(new SegmentItem('identify', []));
 
-        return SegmentUser::make();
+        return SegmentUser::make()->withDefaults($item->message);
     }
 
     public static function identify(): static
