@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Hatchet\Segment;
 
 use Hatchet\Segment\Drivers\FakeDriver;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Testing\Fakes\Fake;
 use Illuminate\Support\Traits\ForwardsCalls;
 
@@ -15,8 +16,9 @@ class SegmentFake extends SegmentAnalytics implements Fake
 {
     use ForwardsCalls;
 
-    public function __construct(public SegmentAnalytics $manager, public FakeDriver $driver)
+    public function __construct(Container $container, public SegmentAnalytics $manager, public FakeDriver $driver)
     {
+        parent::__construct($container);
     }
 
     public function __call($name, $arguments)

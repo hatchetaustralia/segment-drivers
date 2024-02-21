@@ -54,7 +54,7 @@ class Segment extends Facade
         /** @var FakeDriver $driver */
         $driver = $manager->forgetDriver('fake')->driver('fake');
 
-        $fake = new SegmentFake($manager, $driver);
+        $fake = new SegmentFake(self::$app, $manager, $driver);
         static::swap($fake);
 
         return $fake;
