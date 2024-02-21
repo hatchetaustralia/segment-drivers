@@ -19,7 +19,10 @@ class SegmentContextIdentifyEvents implements Modifier
             return $next($item);
         }
 
-        $data = SegmentUser::identify()->common();
+        $defaults = [
+            'anonymousId' => $item->get('anonymousId'),
+        ];
+        $data = SegmentUser::identify()->withDefaults($defaults)->common();
         $item->withDefaults($data);
 
         return $next($item);
